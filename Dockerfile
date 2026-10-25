@@ -8,8 +8,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Then the code.
-COPY source/ src/
-COPY scripts/ scripts/
+COPY . .
 
 # A folder the service may write to, owned by the user it runs as.
 RUN mkdir -p /app/data && chown 1000:1000 /app/data
