@@ -10,7 +10,7 @@ python3 -m unittest discover -s tests -v 2>&1 | tee test-output.txt || true
 total=$(sed -n 's/^Ran \([0-9][0-9]*\) tests\{0,1\} in .*/\1/p' test-output.txt)
 passed=$(grep -c ' \.\.\. ok$' test-output.txt || true)
 echo "TESTS: ${passed}/${total:-0}"
-if ["$passed" -ne "$total"]; then
+if [ "$passed" -ne "$total" ]; then
     exit 1
 fi
 exit 0
